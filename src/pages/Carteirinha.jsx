@@ -99,7 +99,7 @@ export default function Carteirinha() {
       <div className="screen">
         <div className="center-text">
           <div className="loading-spin" />
-          <p style={{ fontWeight: 700 }}>Preparando a carteirinha...</p>
+          <p style={{ fontWeight: 700 }}>Vruum! Buscando o piloto na pista...</p>
         </div>
       </div>
     )
@@ -109,7 +109,7 @@ export default function Carteirinha() {
     return (
       <div className="screen">
         <div className="panel center-text">
-          <h1 className="title">N&atilde;o encontramos essa carteirinha {'\ud83d\ude15'}</h1>
+          <h1 className="title">Eita! N&atilde;o encontramos esse piloto {'\ud83d\ude15'}</h1>
         </div>
       </div>
     )
@@ -119,10 +119,10 @@ export default function Carteirinha() {
     <div className="screen">
       <div className="card-wrap">
         <div className="eyebrow center-text" style={{ justifyContent: 'center' }}>
-          {'\ud83c\udf89'} Carteirinha aprovada!
+          {'\ud83c\udfc1'} Carteirinha aprovada, piloto!
         </div>
         <h1 className="title center-text" style={{ marginBottom: 20 }}>
-          Parab&eacute;ns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
+          VROOOOM! Piloto {piloto.crianca_nome?.split(' ')[0]} t&aacute; na pista! {'\ud83d\ude80'}
         </h1>
 
         <div className="id-card" ref={cardRef}>
@@ -189,18 +189,18 @@ export default function Carteirinha() {
         </div>
 
         <button className="btn btn-secondary" onClick={handleDownload} disabled={baixando}>
-          {baixando ? 'Gerando imagem...' : '\u2b07\ufe0f Baixar carteirinha'}
+          {baixando ? 'Vruum... gerando imagem!' : '\ud83d\udcf2 Salvar minha carteirinha!'}
         </button>
 
         <div className="upsell-box">
-          <div className="upsell-title">{'\ud83c\udf1f'} Complete o kit do pequeno piloto!</div>
+          <div className="upsell-title">{'\ud83d\udd25'} Piloto no modo turbo!</div>
           <p>
-            Chaveiro personalizado, plaquinha de corrida para o quarto
-            e camiseta exclusiva com o nome do piloto. Presentes que
-            combinam com quem j&aacute; tem o carrinho oficial Bangtoys!
+            Seu piloto j&aacute; tem o carrinho. Falta o kit completo!
+            Chaveiro personalizado, plaquinha de corrida e camiseta
+            exclusiva com o nome dele. Presente certeiro! {'\ud83c\udfaf'}
           </p>
           <button className="btn btn-yellow" style={{ marginTop: 0 }}>
-            Ver acess&oacute;rios Bangtoys {'\ud83c\udfc6'}
+            Quero o kit completo! {'\ud83d\udd25'}
           </button>
         </div>
       </div>
