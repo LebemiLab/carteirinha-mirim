@@ -109,7 +109,7 @@ export default function Carteirinha() {
     return (
       <div className="screen">
         <div className="panel center-text">
-          <h1 className="title">NÃ£o encontramos essa carteirinha ð</h1>
+          <h1 className="title">N&atilde;o encontramos essa carteirinha {'\ud83d\ude15'}</h1>
         </div>
       </div>
     )
@@ -119,10 +119,10 @@ export default function Carteirinha() {
     <div className="screen">
       <div className="card-wrap">
         <div className="eyebrow center-text" style={{ justifyContent: 'center' }}>
-          ð Carteirinha aprovada!
+          {'\ud83c\udf89'} Carteirinha aprovada!
         </div>
         <h1 className="title center-text" style={{ marginBottom: 20 }}>
-          ParabÃ©ns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
+          Parab&eacute;ns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
         </h1>
 
         <div className="id-card" ref={cardRef}>
@@ -130,12 +130,12 @@ export default function Carteirinha() {
             <div className="id-brand">
               <BangtoysLogo height={30} />
               <div className="id-brand-sub" style={{ marginTop: 4 }}>
-                CARRINHOS ELÃTRICOS PARA CRIANÃAS
+                CARRINHOS EL&Eacute;TRICOS PARA CRIAN&Ccedil;AS
               </div>
             </div>
             <div className="id-doc-title">
               <div className="main">CARTEIRINHA DE<br />MOTORISTA MIRIM</div>
-              <div className="country">VRUUUM! â APROVADO</div>
+              <div className="country">VRUUUM! {'\u2713'} APROVADO</div>
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export default function Carteirinha() {
               <div className="id-photo">
                 {piloto.foto_url && <img src={piloto.foto_url} alt={piloto.crianca_nome} />}
               </div>
-              <div className="id-mascot">ð</div>
+              <div className="id-mascot">{'\ud83c\udfc1'}</div>
             </div>
 
             <div className="id-info">
@@ -160,17 +160,17 @@ export default function Carteirinha() {
 
               <div className="id-field">
                 <div className="label">Categoria</div>
-                <div className="id-pill">ð¸ PILOTO MIRIM</div>
+                <div className="id-pill">{'\ud83d\udec8'} PILOTO MIRIM</div>
               </div>
 
               <div className="id-field">
-                <div className="label">Carteirinha NÂº</div>
+                <div className="label">Carteirinha N&ordm;</div>
                 <div className="value">{regNumber(piloto.id)}</div>
               </div>
 
               <div className="id-field">
                 <div className="label">Validade</div>
-                <div className="value">PRA SEMPRE ð</div>
+                <div className="value">PRA SEMPRE {'\ud83d\udc9b'}</div>
               </div>
             </div>
           </div>
@@ -178,28 +178,28 @@ export default function Carteirinha() {
           <div className="id-footer">
             <div className="reg">
               <b>www.bangtoys.com.br</b>
-              Carrinhos elÃ©tricos oficiais
+              Carrinhos el&eacute;tricos oficiais
             </div>
             <div className="icons">
-              <div className="icon-chip">ð¦</div>
-              <div className="icon-chip">ð</div>
-              <div className="icon-chip">ð</div>
+              <div className="icon-chip">{'\ud83d\udea6'}</div>
+              <div className="icon-chip">{'\ud83d\uded1'}</div>
+              <div className="icon-chip">{'\ud83c\udfc6'}</div>
             </div>
           </div>
         </div>
 
         <button className="btn btn-secondary" onClick={handleDownload} disabled={baixando}>
-          {baixando ? 'Gerando imagem...' : 'â¬ï¸ Baixar carteirinha'}
+          {baixando ? 'Gerando imagem...' : '\u2b07\ufe0f Baixar carteirinha'}
         </button>
 
         <div className="upsell-box">
-          <div className="upsell-title">ð Deixa a carteirinha ainda mais top!</div>
+          <div className="upsell-title">{'\ud83c\udf81'} Deixa a carteirinha ainda mais top!</div>
           <p>
-            Que tal um carrinho elÃ©trico Bangtoys? Temos modelos incrÃ­veis
-            para o seu pequeno piloto arrasar com seguranÃ§a!
+            Que tal um carrinho el&eacute;trico Bangtoys? Temos modelos incr&iacute;veis
+            para o seu pequeno piloto arrasar com seguran&ccedil;a!
           </p>
           <button className="btn btn-yellow" style={{ marginTop: 0 }}>
-            Ver carrinhos Bangtoys ð
+            Ver carrinhos Bangtoys {'\ud83d\ude97'}
           </button>
         </div>
       </div>
