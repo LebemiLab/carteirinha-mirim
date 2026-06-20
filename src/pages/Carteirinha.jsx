@@ -193,13 +193,14 @@ export default function Carteirinha() {
         </button>
 
         <div className="upsell-box">
-          <div className="upsell-title">{'\ud83c\udf81'} Deixa a carteirinha ainda mais top!</div>
+          <div className="upsell-title">{'\ud83c\udf1f'} Complete o kit do pequeno piloto!</div>
           <p>
-            Que tal um carrinho el&eacute;trico Bangtoys? Temos modelos incr&iacute;veis
-            para o seu pequeno piloto arrasar com seguran&ccedil;a!
+            Chaveiro personalizado, plaquinha de corrida para o quarto
+            e camiseta exclusiva com o nome do piloto. Presentes que
+            combinam com quem j&aacute; tem o carrinho oficial Bangtoys!
           </p>
           <button className="btn btn-yellow" style={{ marginTop: 0 }}>
-            Ver carrinhos Bangtoys {'\ud83d\ude97'}
+            Ver acess&oacute;rios Bangtoys {'\ud83c\udfc6'}
           </button>
         </div>
       </div>
