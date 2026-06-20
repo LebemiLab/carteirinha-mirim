@@ -109,7 +109,7 @@ export default function Carteirinha() {
     return (
       <div className="screen">
         <div className="panel center-text">
-          <h1 className="title">Não encontramos essa carteirinha 😕</h1>
+          <h1 className="title">NÃ£o encontramos essa carteirinha ð</h1>
         </div>
       </div>
     )
@@ -119,10 +119,10 @@ export default function Carteirinha() {
     <div className="screen">
       <div className="card-wrap">
         <div className="eyebrow center-text" style={{ justifyContent: 'center' }}>
-          🎉 Carteirinha aprovada!
+          ð Carteirinha aprovada!
         </div>
         <h1 className="title center-text" style={{ marginBottom: 20 }}>
-          Parabéns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
+          ParabÃ©ns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
         </h1>
 
         <div className="id-card" ref={cardRef}>
@@ -130,12 +130,12 @@ export default function Carteirinha() {
             <div className="id-brand">
               <BangtoysLogo height={30} />
               <div className="id-brand-sub" style={{ marginTop: 4 }}>
-                CARRINHOS ELÉTRICOS PARA CRIANÇAS
+                CARRINHOS ELÃTRICOS PARA CRIANÃAS
               </div>
             </div>
             <div className="id-doc-title">
               <div className="main">CARTEIRINHA DE<br />MOTORISTA MIRIM</div>
-              <div className="country">VRUUUM! ✓ APROVADO</div>
+              <div className="country">VRUUUM! â APROVADO</div>
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export default function Carteirinha() {
               <div className="id-photo">
                 {piloto.foto_url && <img src={piloto.foto_url} alt={piloto.crianca_nome} />}
               </div>
-              <div className="id-mascot">🏁</div>
+              <div className="id-mascot">ð</div>
             </div>
 
             <div className="id-info">
@@ -160,135 +160,49 @@ export default function Carteirinha() {
 
               <div className="id-field">
                 <div className="label">Categoria</div>
-                <div className="id-pill">🚸 PILOTO MIRIM</div>
+                <div className="id-pill">ð¸ PILOTO MIRIM</div>
               </div>
 
               <div className="id-field">
-                <div className="label">Carteirinha Nº</div>
+                <div className="label">Carteirinha NÂº</div>
                 <div className="value">{regNumber(piloto.id)}</div>
               </div>
 
               <div className="id-field">
                 <div className="label">Validade</div>
-import { useParams } from 'react-router-dom'
-import { toPng } from 'html-to-image'
-import { supabase } from '../lib/supabaseClient'
-
-const BANGTOYS_LOGO = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iQ2FtYWRhXzIiIGRhdGEtbmFtZT0iQ2FtYWRhIDIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwOS44NiA0MC4wMiI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2VhOGIyYjsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICB9CgogICAgICAuY2xzLTMgewogICAgICAgIGZpbGw6ICNkMWRiMmQ7CiAgICAgIH0KCiAgICAgIC5jbHMtNCB7CiAgICAgICAgZmlsbDogI2Q4MTc1ZjsKICAgICAgfQoKICAgICAgLmNscy01IHsKICAgICAgICBmaWxsOiAjMDA5ZDkwOwogICAgICB9CiAgICA8L3N0eWxlPgogIDwvZGVmcz4KICA8ZyBpZD0iQ2FtYWRhXzEtMiIgZGF0YS1uYW1lPSJDYW1hZGEgMSI+CiAgICA8Zz4KICAgICAgPHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMTA3LjYyLDMxLjIxdi0uMDRjLS4wNy0uMzgtLjE0LS43Ni0uMjEtMS4xNGwtLjM0LTEuODEtLjE3LjAzYy42My0uOTMuOTItMS45MywxLjAxLTIuODcuMTctMS44MS0uNS0zLTEuMDktMy42OC0uNTgtLjY2LTEuMzQtMS4xNy0yLjMyLTEuNTUsMS40LS45NywyLjM5LTIuNDEsMi42LTQuNTIuMDItLjE5LjAzLS4zOC4wMy0uNTdsMS4xMS0uNjMsMS42My0uOTItLjkxLTEuNjQtMS4xNy0yLjExLS42OC0xLjIyLTEuMzYuMjktMy4wOC42NmMtMS4zOS0uNDUtMy4wOC0uNjctNS4wNi0uNjctNC44MSwwLTcuNDMsMS4yOS04Ljg0LDIuODQtLjExLS4xNS0uMjItLjI5LS4zNS0uNDMtMS40NS0xLjU5LTMuNzMtMi40NC02LjYxLTIuNDQtMS42MSwwLTMuMjMuMjktNC43LjgybC0uNDUtLjY5LTEuMDguMDUtNC42Ny4yLTEuNjQuMDctLjE0LDEuNDJjLTEuNTktMS4yNS0zLjk3LTEuODItNy41NC0xLjgyLTIuNzMsMC01LjE3LjMyLTcuMy45Mi0uMjItLjUxLS41My0uOTktLjkyLTEuNDItMS42Mi0xLjc5LTQuNTMtMi42OS04LjYzLTIuNjloLTEyLjA3bC0uMTYsMS43LTEuOCwxOC41OC0uMiwyLjA3aDEyLjM2YzMuODYsMCw2LjgxLS43Miw4LjgyLTIuMTEuMDMuMDQuMDYuMDguMDkuMTEsMS4zNSwxLjQ5LDMuNDcsMi4yNSw2LjI5LDIuMjUsMS40OCwwLDIuODUtLjIzLDQuMDUtLjY2bC4xMi40MWgyMy45OHMuMDQuMS4wNi4xNGwtLjE0LjIzYy0uMjIuMzYtLjQ0LjcyLS42NiwxLjA3bC0xLjEsMS43NiwxLjguOWMtLjM0LjY3LS42OCwxLjM0LTEuMDMsMmwtLjk2LDEuODIsMS44OS44Yy44Mi4zNSwxLjY3LjY2LDIuNTIuOTJsMS42NC41MS4xMy0uMzFjLjY3LjQzLDEuNTUuNzEsMi42My44NmguMDJzLjAyLDAsLjAyLDBjLjM4LjA0Ljc0LjA3LDEuMDguMDcuMTIsMCwuMjItLjAyLjM0LS4wMmwtLjIuNjUsMS45OC40NWMuNDIuMS44Ny4xNCwxLjM2LjE0LjE2LDAsLjMyLDAsLjQ4LS4wMiwyLjE5LS4xNCwzLjQtMS4xMSw0LjA1LTIuMWguMDVjLjExLjAxLjIyLjAxLjM0LjAxLjc4LDAsMS42NC0uMTYsMi41NS0uNDgsMy4yOC0xLjE4LDMuOS0zLjMzLDMuMzktNC45NC0uMTctLjUyLS40Ni0uOTYtLjg0LTEuMjhaIi8+CiAgICAgIDxjaXJjbGUgY2xhc3M9ImNscy0yIiBjeD0iMTYuMTEiIGN5PSIxNi4xMSIgcj0iMTYuMTEiLz4KICAgICAgPGc+CiAgICAgICAgPGc+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik02My4wOSwyNS41NWwtLjEtLjAyYy0xLjI2Ljk3LTMuMDMsMS40OS01LjE1LDEuNDktMy44OCwwLTYuMTgtMS42Ni01Ljg1LTUuMDguMjctMi44MiwzLjIxLTQuNzgsNy42NS00Ljc4LDEuMzcsMCwyLjM5LjEsMy4yOC4zbC4wNi0uNTljLjExLTEuMTQtLjY3LTEuNzYtMy4xOC0xLjc2LTIuMTgsMC0zLjUxLjI1LTUuNDYuNzdsLS4xNS0zLjU0YzIuMTEtLjY0LDQuNTYtLjk0LDcuMTctLjk0LDYuMzEsMCw4LjI3LDEuODgsNy44Niw2LjEybC0uOSw5LjI3aC00LjlsLS4zNC0xLjIxWk02Mi42LDIwLjQyYy0uNDEtLjEyLTEuMDctLjIyLTIuMDItLjIyLTEuNjYsMC0yLjQ1LjUyLTIuNTYsMS42OXMuNjIsMS42MSwxLjg5LDEuNjEsMi40NS0uNTQsMi41My0xLjM5bC4xNi0xLjY5WiIvPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNODAuNTQsMjYuNzdsLjk0LTkuNzRjLjEyLTEuMjktLjY0LTEuNzgtMi4xNS0xLjc4LTEuMDIsMC0yLC4zLTIuNTguODJsLTEuMDQsMTAuN2gtNi40MWwxLjQ2LTE1LjA2LDQuNjctLjIuNzMsMS4xNGMxLjU2LS44NCwzLjQ3LTEuMzEsNS40MS0xLjMxLDQuMTYsMCw2LjY4LDIuMDEsNi4zMiw1LjdsLS45NCw5Ljc0aC02LjQxWiIvPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy00IiBkPSJNOTQuNDMsMjAuNjVjLS4yMy4xNS0uMzkuMzUtLjQuNTItLjAzLjMuMy41MiwxLjA3LjU1bDQuNDkuMTdjNC41Ni4xNyw2LjQ0LDEuNDksNi4yMSwzLjk0LS4zLDMuMDctMy40NCw0Ljk2LTEwLjA2LDQuOTYtNS45NSwwLTguMzMtMS42Ni04LjExLTMuODkuMDgtLjg0LjY1LTEuNjYsMS43LTIuMjgtLjg3LS41LTEuNDctMS4yMS0xLjM3LTIuMjNzLjktMi4wMywyLjgtMi43M2MtMS4zLS43Mi0yLjA3LTEuODgtMS45MS0zLjU3LjI2LTIuNzMsMi43MS00LjczLDguNTMtNC43MywxLjc2LDAsMy41NC4yLDQuOTMuNzRsMy42LS43NywxLjE3LDIuMTEtMi4yLDEuMjRjLjEuNDIuMTYuODkuMTEsMS40MS0uMjksMy0yLjkyLDQuNjYtOC40OCw0LjY2LS43MSwwLTEuNDEtLjAyLTIuMDctLjFaTTkzLjY4LDI1LjRjLS4zOC4yNy0uNTUuNTktLjU4Ljg3LS4wOC44Mi43MywxLjE3LDIuODEsMS4xNywzLjIxLDAsMy45OC0uMzUsNC4wNC0uOTkuMDUtLjUyLS4zNS0uNzQtMS44OS0uODJsLTQuMzgtLjIyWk05NS4xNCwxNi4xOWMtLjEyLDEuMTkuNDksMS41NCwxLjU4LDEuNTQsMS40OCwwLDEuOTctLjM1LDIuMDktMS41NHMtLjM1LTEuNTEtMS42OS0xLjUxLTEuODcuNC0xLjk4LDEuNTFaIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxnPgogICAgICAgICAgPHBhdGggY2xhc3M9ImNscy01IiBkPSJNOTAuNDgsMzIuNTFjLS40OSwxLjM0LTEuMDEsMi42Ni0xLjU1LDMuOTgtLjc5LS4yNC0xLjU3LS41My0yLjM0LS44NS42Ni0xLjI1LDEuMy0yLjUyLDEuOTEtMy44LS41Ni0uMjItMS4xMS0uNDctMS42NS0uNzQuMjMtLjM3LjQ1LS43My42OC0xLjEsMS42MS43OSwzLjI5LDEuMzQsNSwxLjY2LS4xLjQyLS4yLjg0LS4zMSwxLjI2LS41OC0uMTEtMS4xNi0uMjUtMS43My0uNDFaIi8+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik05My4wMywzNy40OGMtMi4yNy0uMzEtMy4wNC0xLjI2LTIuNDUtMi44Ni41OC0xLjYyLDEuNjItMS45OSwzLjQ4LTEuNzksMS44Ni4xNywyLjY1Ljc1LDIuNTEsMi40OC0uMTUsMS43LTEuMjUsMi40NC0zLjUzLDIuMTdaTTkzLjI5LDM2LjQzYy42OC4wOC45OC0uMTMsMS4xNy0xLjE3LjE5LTEuMDYsMC0xLjI4LS42Mi0xLjM0LS42NC0uMDctLjkuMDktMS4xNywxLjEzLS4yNywxLjA0LS4wNywxLjI5LjYzLDEuMzhaIi8+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik05OC4zOSwzNy4zN3MuMDItLjA0LjAzLS4wNWMtLjkxLTEuMzktMS43LTIuODItMi4zNi00LjI5LjcsMCwxLjQtLjAzLDIuMS0uMS4zMi43OC42NiwxLjU2LDEuMDMsMi4zMi4wOC4xOC4xNi4zNy4yNC41NS4wMSwwLC4wMiwwLC4wMywwLC4wNS0uMi4xLS40MS4xNS0uNjIuMjQtLjg1LjQ0LTEuNzEuNjEtMi41Ny42NS0uMTMsMS4yOS0uMywxLjkyLS41LS4zNywxLjY2LS45LDMuMzItMS41OSw0Ljk2LS40NywxLjA0LTEuNDEsMS41OS0yLjgzLDEuNjgtLjQ3LjAzLS45MiwwLTEuMjktLjA4LjEtLjMxLjE5LS42Mi4yOC0uOTMuMjMuMDUuNDQuMDcuNjguMDYuNDQtLjAyLjgxLS4xMywxLS40MloiLz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTEwNC4yLDM2LjI4Yy0uODEuMjgtMS41NC40MS0yLjE0LjM3LjAzLS4zOS4wNi0uNzguMDgtMS4xNi41NS4wNSwxLjMyLS4xLDEuODItLjI4LjUxLS4xOC43MS0uNDEuNjctLjU5LS4xMi0uNTMtMi43OS43LTIuOTctLjkzLS4wOS0uODMuNTQtMS42LDIuMDQtMi4yLjU3LS4yMywxLjE0LS40LDEuNjItLjQ3LjA3LjM3LjEzLjczLjIsMS4xLS41LjA5LTEuMTUuMzEtMS41Ni40Ny0uMzguMTUtLjU0LjMxLS41MS40OC4xMy42MSwyLjUzLS43OCwyLjk4LjYzLjI4Ljg5LS4yOSwxLjktMi4yMiwyLjZaIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTUwLjk3LDIxLjg3Yy4xLTEuMDkuNTQtMi4wNCwxLjI1LTIuODMtLjU1LTEuMDMtMS42NC0xLjczLTMuMjUtMi4xMXYtLjA1YzIuMDQtLjY3LDMuNDMtMS45MywzLjYyLTMuODkuMjktMi45NS0yLjQyLTQuODEtOC4xLTQuODFoLTEwLjM2bC0xLjgsMTguNThoMTAuMjljNC4yOCwwLDcuMDYtLjksOC41OC0yLjQ1LS4yNS0uNzItLjMzLTEuNTMtLjI0LTIuNDRaTTQ1LjY3LDIwLjk0Yy0uMTQsMS40Ni0uODEsMS44Ni0yLjU0LDEuODZoLTMuNzNsLjM1LTMuNjdoMy41OWMxLjk0LDAsMi40NS41MiwyLjMzLDEuODFaTTQ1LjksMTMuODNjLS4xMiwxLjI2LS43MywxLjY5LTIuMzEsMS42OWgtMy40OWwuMzItMy4yN2gzLjQyYzEuNjIsMCwyLjE4LjM3LDIuMDcsMS41OVoiLz4KICAgICAgPC9nPgogICAgICA8Zz4KICAgICAgICA8Zz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTEyLjg3LDE0LjI4Yy0xLjI3LTEuNTktNS42Mi02LjIxLTYuNDgtNy41MS0yLjM1LDIuNTUtMy43OCw1Ljk2LTMuNzgsOS43LDAsMi43My43Niw1LjI4LDIuMDgsNy40NSw2LjktNi42NywxMC41MS02LjcxLDguMTgtOS42NFoiLz4KICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTIwLjMsMjAuNzFjLS4yMSwzLjMtLjU3LDcuMDUtLjg3LDkuODksNi43NC0xLjE4LDExLjg2LTcuMDUsMTEuODYtMTQuMTIsMC0xLjUxLS4yMy0yLjk2LS42Ny00LjMzLTQuODcsMy41OS0xMC4wMywzLjg0LTEwLjMyLDguNTZaIi8+CiAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNS45OSwyMi4yM2MtLjk2LTIuNi02LjcyLjI2LTEwLjY4LDIuNjEsMi42LDMuNjIsNi44NSw1Ljk3LDExLjY0LDUuOTcuNDIsMCwuODQtLjAyLDEuMjYtLjA2LS41NC0yLjc1LTEuMzctNi4yMi0yLjIyLTguNTNaIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTE2Ljk1LDIuMTNjLTQuMDgsMC03Ljc2LDEuNzEtMTAuMzcsNC40NC4yMS4xNC41My4zNy45OC43Myw5LjE1LDcuMzYsMTguNjYsNS40OCwyMi44LDQuMDktMi4wNS01LjQyLTcuMjgtOS4yNy0xMy40Mi05LjI3Wk0yMi45OCw5LjAxYy0uMjcsMS43My0xLjg4LDIuOTItMy41OCwyLjY1LTEuNy0uMjctMi44Ni0xLjg5LTIuNTktMy42My4yNy0xLjczLDEuODgtMi45MiwzLjU4LTIuNjUsMS43LjI3LDIuODYsMS44OSwyLjU5LDMuNjNaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy01IiBkPSJNMTguNzMsOS44NWMtLjU4LS4xMy0xLjA5LS4zOC0xLjQ4LS43LjA5LjguNjEsMS40NiwxLjM0LDEuNjJzMS41NC0uMjUsMS45NS0uOThjLS41My4xNy0xLjE3LjIxLTEuODIuMDZaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==';
-
-function formatDate(d) {
-  if (!d) return ''
-  const [y, m, dd] = d.split('-')
-  return dd + '/' + m + '/' + y
-}
-
-function regNumber(id) {
-  return 'MIR-' + String(id).replace(/-/g,'').slice(0,8).toUpperCase()
-}
-
-export default function Carteirinha() {
-  const { id } = useParams()
-  const cardRef = useRef(null)
-  const [piloto, setPiloto] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [baixando, setBaixando] = useState(false)
-
-  useEffect(() => {
-    supabase.from('pilotos').select('*').eq('id', id).single()
-      .then(({ data }) => { if (data) setPiloto(data); setLoading(false) })
-  }, [id])
-
-  async function handleDownload() {
-    if (!cardRef.current) return
-    setBaixando(true)
-    try {
-      const url = await toPng(cardRef.current, { pixelRatio: 3, cacheBust: true })
-      const a = document.createElement('a')
-      a.download = 'carteirinha-' + (piloto?.crianca_nome || 'mirim') + '.png'
-      a.href = url; a.click()
-    } catch(e){ console.error(e) } finally { setBaixando(false) }
-  }
-
-  if (loading) return (
-    <div className="screen"><div className="center-text">
-      <div className="loading-spin"/><p style={{fontWeight:700}}>Preparando a carteirinha...</p>
-    </div></div>
-  )
-  if (!piloto) return (
-    <div className="screen"><div className="panel center-text">
-      <h1 className="title">Carteirinha não encontrada 😕</h1>
-    </div></div>
-  )
-
-  return (
-    <div className="screen">
-      <div className="card-wrap">
-        <div className="eyebrow center-text" style={{justifyContent:'center'}}>🎉 Carteirinha aprovada!</div>
-        <h1 className="title center-text" style={{marginBottom:20}}>
-          Parabéns, Piloto {piloto.crianca_nome?.split(' ')[0]}!
-        </h1>
-        <div className="id-card" ref={cardRef}>
-          <div className="id-top-band">
-            <div className="id-brand">
-              <img src={BANGTOYS_LOGO} alt="Bangtoys" style={{height:30,display:'block'}}/>
-              <div className="id-brand-sub" style={{marginTop:4}}>CARRINHOS ELÉTRICOS PARA CRIANÇAS</div>
-            </div>
-            <div className="id-doc-title">
-              <div className="main">CARTEIRINHA DE<br/>MOTORISTA MIRIM</div>
-              <div className="country">VRUUUM! ✓ APROVADO</div>
-            </div>
-          </div>
-          <div className="id-body">
-            <div className="id-photo-block">
-              <div className="id-photo">
-                {piloto.foto_url && <img src={piloto.foto_url} alt={piloto.crianca_nome}/>}
-              </div>
-              <div className="id-mascot">🏁</div>
-            </div>
-            <div className="id-info">
-              <div className="id-field full">
-                <div className="label">Nome do Piloto</div>
-                <div className="value big">{piloto.crianca_nome}</div>
-              </div>
-              <div className="id-field">
-                <div className="label">Nasceu em</div>
-                <div className="value">{formatDate(piloto.crianca_nascimento)}</div>
-              </div>
-              <div className="id-field">
-                <div className="label">Categoria</div>
-                <div className="id-pill">🚸 PILOTO MIRIM</div>
-              </div>
-              <div className="id-field">
-                <div className="label">Carteirinha Nº</div>
-                <div className="value">{regNumber(piloto.id)}</div>
-              </div>
-              <div className="id-field">
-                <div className="label">Validade</div>
-                <div className="value">PRA SEMPRE 💛</div>
+                <div className="value">PRA SEMPRE ð</div>
               </div>
             </div>
           </div>
+
           <div className="id-footer">
             <div className="reg">
-              <b>BANGTOYS.COM.BR</b>
-              Carrinhos elétricos oficiais
+              <b>www.bangtoys.com.br</b>
+              Carrinhos elÃ©tricos oficiais
             </div>
             <div className="icons">
-              <div className="icon-chip">🚦</div>
-              <div className="icon-chip">🛑</div>
-              <div className="icon-chip">🏆</div>
+              <div className="icon-chip">ð¦</div>
+              <div className="icon-chip">ð</div>
+              <div className="icon-chip">ð</div>
             </div>
           </div>
         </div>
+
         <button className="btn btn-secondary" onClick={handleDownload} disabled={baixando}>
-          {baixando ? 'Gerando imagem...' : '⬇️ Baixar carteirinha'}
+          {baixando ? 'Gerando imagem...' : 'â¬ï¸ Baixar carteirinha'}
         </button>
+
         <div className="upsell-box">
-          <div className="upsell-title">🎁 Deixa a carteirinha ainda mais top!</div>
-          <p>Que tal um carrinho elétrico Bangtoys? Temos modelos incríveis para o seu pequeno piloto arrasar com segurança!</p>
-          <button className="btn btn-yellow" style={{marginTop:0}}>Ver carrinhos Bangtoys 🚗</button>
+          <div className="upsell-title">ð Deixa a carteirinha ainda mais top!</div>
+          <p>
+            Que tal um carrinho elÃ©trico Bangtoys? Temos modelos incrÃ­veis
+            para o seu pequeno piloto arrasar com seguranÃ§a!
+          </p>
+          <button className="btn btn-yellow" style={{ marginTop: 0 }}>
+            Ver carrinhos Bangtoys ð
+          </button>
         </div>
       </div>
     </div>
   )
-                }
+}
